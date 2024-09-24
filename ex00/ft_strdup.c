@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 08:51:01 by elagouch          #+#    #+#             */
-/*   Updated: 2024/09/24 09:57:46 by elagouch         ###   ########.fr       */
+/*   Updated: 2024/09/24 10:22:38 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strdup(char *src)
 	char	*dest;
 
 	dest = malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (dest == 0)
+		return (0);
 	i = 0;
 	while (src[i] != '\0')
 	{
@@ -35,13 +37,13 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-// #include <stdio.h>
-// int	main(int argc, char **argv)
-// {
-// 	char	*dest;
-//
-// 	(void) argc;
-// 	dest = ft_strdup(argv[1]);
-// 	printf("%s\n", dest);
-// 	free(dest);
-// }
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	char	*dest;
+
+	(void) argc;
+	dest = ft_strdup(argv[1]);
+	printf("%s\n", dest);
+	free(dest);
+}
