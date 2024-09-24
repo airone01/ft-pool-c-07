@@ -1,54 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elagouch <elagouch@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 08:51:01 by elagouch          #+#    #+#             */
-/*   Updated: 2024/09/24 10:26:20 by elagouch         ###   ########.fr       */
+/*   Created: 2024/09/24 09:59:09 by elagouch          #+#    #+#             */
+/*   Updated: 2024/09/24 10:32:14 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strlen(char *str)
-{
-	if (*str == '\0')
-		return (0);
-	return (1 + ft_strlen(str + sizeof(char)));
-}
-
 /*
 Returns:
-- string if everything worked
+- pointer to ints if everything worked
 - NULL if malloc failed
 */
-char	*ft_strdup(char *src)
+int	*ft_range(int min, int max)
 {
-	int		i;
-	char	*dest;
+	int	*dest;
+	int	i;
 
-	dest = malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (min >= max)
+		return (0);
+	dest = malloc(sizeof(int) * (max - min));
 	if (dest == 0)
 		return (0);
-	i = 0;
-	while (src[i] != '\0')
+	i = min;
+	while (i < max)
 	{
-		dest[i] = src[i];
+		dest[i] = i;
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	char	*dest;
-
-	(void) argc;
-	dest = ft_strdup(argv[1]);
-	printf("%s\n", dest);
-	free(dest);
-}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	int	*dest;
+// 	int	i;
+//
+// 	dest = ft_range(0, 5);
+// 	i = 0;
+// 	while(i < 5)
+// 	{
+// 		printf("%d, ", dest[i]);
+// 		i++;
+// 	}
+// 	free(dest);
+// }
