@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 08:51:01 by elagouch          #+#    #+#             */
-/*   Updated: 2024/09/24 09:37:12 by elagouch         ###   ########.fr       */
+/*   Updated: 2024/09/24 09:57:46 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_strlen(char *str)
 
 char	*ft_strdup(char *src)
 {
+	int		i;
 	char	*dest;
-	int	i;
 
 	dest = malloc(sizeof(char) * (ft_strlen(src) + 1));
 	i = 0;
