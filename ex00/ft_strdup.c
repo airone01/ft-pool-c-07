@@ -20,9 +20,11 @@ int	ft_strlen(char *str)
 }
 
 /*
-Returns:
-- string if everything worked
-- NULL if malloc failed
+ * Duplicates a string.
+ *
+ * Returns:
+ * - string if everything worked
+ * - NULL if malloc failed
 */
 char	*ft_strdup(char *src)
 {
@@ -42,13 +44,13 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	char	*dest;
-
-	(void) argc;
-	dest = ft_strdup(argv[1]);
-	printf("%s\n", dest);
-	free(dest);
-}
+// #include <stdio.h>
+// int	main(int argc, char **argv)
+// {
+// 	char	*dest;
+//
+// 	(void) argc;
+// 	dest = ft_strdup(argv[1]);
+// 	printf("%s\n", dest);
+// 	free(dest);
+// }

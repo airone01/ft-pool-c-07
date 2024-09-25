@@ -6,16 +6,16 @@
 /*   By: elagouch <elagouch@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 09:59:09 by elagouch          #+#    #+#             */
-/*   Updated: 2024/09/24 10:32:14 by elagouch         ###   ########.fr       */
+/*   Updated: 2024/09/24 10:38:24 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 /*
-Returns:
-- pointer to ints if everything worked
-- NULL if malloc failed
+ * Returns:
+ * - pointer to ints if everything worked
+ * - NULL if malloc failed
 */
 int	*ft_range(int min, int max)
 {
