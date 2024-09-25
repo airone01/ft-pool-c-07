@@ -44,6 +44,17 @@ int	ft_abs(int nb)
 	return (nb);
 }
 
+void	ft_itoa_base2(int *tmp, int *nbr, int *size, char *base)
+{
+	*tmp = *nbr;
+	*tmp /= ft_strlen(base);
+	while (*tmp)
+	{
+		*tmp /= ft_strlen(base);
+		*size = *size + 1;
+	}
+}
+
 char	*ft_itoa_base(int nbr, char *base)
 {
 	int		size;
@@ -55,28 +66,17 @@ char	*ft_itoa_base(int nbr, char *base)
 	size = 0;
 	if (nbr < 0)
 		negative = 1;
-	tmp = nbr;
-	tmp /= ft_strlen(base);
-	while (tmp)
-	{
-		tmp /= ft_strlen(base);
-		size++;
-	}
+	ft_itoa_base2(&tmp, &nbr, &size, base);
 	size = size + negative + 1;
 	str = (char *) malloc(sizeof(char) * (size + 1));
 	str[size] = '\0';
-	ft_itoa_base2(&size, negative, base, &nbr);
-	return (str);
-}
-
-void	ft_itoa_base2(int *size, int negative, char *base, int *nbr)
-{
 	if (negative == 1)
 		str[0] = '-';
 	while (size > negative)
 	{
 		str[size - 1] = base[ft_abs(nbr % ft_strlen(base))];
-		*size--;
-		*nbr /= ft_strlen(base);
+		size = size - 1;
+		nbr /= ft_strlen(base);
 	}
+	return (str);
 }
