@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 char	*ft_itoa_base(int nbr, char *base);
-int	ft_strlen(char *str);
+int		ft_strlen(char *str);
 
 int	bad_base(char *base)
 {
@@ -61,10 +61,12 @@ int	in_str(char c, char *str)
 /*
  * Gets the index of an element in a string
  *
- * The second condition should never be reached because we check the bases beforehand.
+ * The second condition should never be reached because we
+ * check the bases beforehand.
  * But just in case, it returns -1 if there is an error.
 */
-int	ft_strchr(char* str, char c) {
+int	ft_strchr(char *str, char c)
+{
 	int		i;
 
 	i = 0;
@@ -119,15 +121,16 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 
 	len_from = ft_strlen(base_from);
 	len_to = ft_strlen(base_to);
-	if (bad_base(base_from) || bad_base(base_to) || len_from <= 1 || len_to <= 1)
+	if (bad_base(base_from) || bad_base(base_to)
+		|| len_from <= 1 || len_to <= 1)
 		return (0);
 	anbr = ft_atoi_base(nbr, base_from);
 	return (ft_itoa_base(anbr, base_to));
 }
 
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	(void) argc;
-	printf("%s", ft_convert_base(argv[1], argv[2], argv[3]));
-}
+// #include <stdio.h>
+// int	main(int argc, char **argv)
+// {
+// 	(void) argc;
+// 	printf("%s", ft_convert_base(argv[1], argv[2], argv[3]));
+// }

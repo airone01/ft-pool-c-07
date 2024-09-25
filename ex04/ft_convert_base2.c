@@ -37,7 +37,7 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-int		ft_abs(int nb)
+int	ft_abs(int nb)
 {
 	if (nb < 0)
 		nb = -nb;
@@ -56,48 +56,27 @@ char	*ft_itoa_base(int nbr, char *base)
 	if (nbr < 0)
 		negative = 1;
 	tmp = nbr;
-	while (tmp /= ft_strlen(base))
+	tmp /= ft_strlen(base);
+	while (tmp)
+	{
+		tmp /= ft_strlen(base);
 		size++;
+	}
 	size = size + negative + 1;
-	str = (char *) malloc(sizeof(char) * (size  + 1));
+	str = (char *) malloc(sizeof(char) * (size + 1));
 	str[size] = '\0';
+	ft_itoa_base2(&size, negative, base, &nbr);
+	return (str);
+}
+
+void	ft_itoa_base2(int *size, int negative, char *base, int *nbr)
+{
 	if (negative == 1)
 		str[0] = '-';
 	while (size > negative)
 	{
 		str[size - 1] = base[ft_abs(nbr % ft_strlen(base))];
-		size--;
-		nbr /= ft_strlen(base);
+		*size--;
+		*nbr /= ft_strlen(base);
 	}
-	return (str);
 }
-
-// char	*ft_itoa_base(int nbr, char *base)
-// {
-// 	int		base_len;
-// 	char	*tmp;
-// 	char	*a;
-// 	char	*b;
-//
-// 	if (nbr == 0)
-// 		return "";
-// 	base_len = ft_strlen(base);
-// 	if (nbr < 0)
-// 	{
-// 		// write(1, "-", 1);
-// 		nbr = -nbr;
-// 	}
-// 	if (nbr >= base_len)
-// 	{
-// 		ft_itoa_base(nbr / base_len, base);
-// 	}
-// 	tmp = ft_itoa_base(nbr, base);
-// 	a = malloc((ft_strlen(tmp) + 1) * sizeof(char));
-// 	a = tmp;
-// 	b = &(base[nbr % base_len]);
-// 	b[1] = '\0';
-// 	ft_strcat(a, b);
-// 	return (a);
-// 	// write(1, &(base[nbr % base_len]), 1);
-// }
-
