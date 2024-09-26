@@ -72,8 +72,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 // 	char	*dest;
 // 	char	*sep;
 //
+// 	// dest = malloc(sizeof(char));
 // 	argv++;
 // 	sep = *argv++;
 // 	dest = ft_strjoin(argc - 2, argv, sep);
 // 	printf("%s", dest);
+// 	free(dest);
+// 	dest = ft_strjoin(0, argv, sep);
+// 	free(dest);
 // }
