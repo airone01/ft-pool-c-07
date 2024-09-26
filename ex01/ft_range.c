@@ -20,34 +20,42 @@
 int	*ft_range(int min, int max)
 {
 	int	*dest;
+	int	size;
 	int	i;
 
+	size = max - min;
 	if (min >= max)
 		return (0);
-	dest = malloc(sizeof(int) * (max - min));
+	dest = malloc(sizeof(int) * size);
 	if (dest == 0)
 		return (0);
-	i = min;
-	while (i < max)
+	i = 0;
+	while (i < size)
 	{
-		dest[i] = i;
+		dest[i] = min;
+		min++;
 		i++;
 	}
 	return (dest);
 }
 
 // #include <stdio.h>
-// int	main(void)
+// int	main(int argc, char **argv)
 // {
 // 	int	*dest;
 // 	int	i;
 //
-// 	dest = ft_range(0, 5);
+// 	if (argc != 3)
+// 	{
+// 		printf("Need 2 arguments.\n");
+// 		return (1);
+// 	}
+// 	dest = ft_range(atoi(argv[1]), atoi(argv[2]));
 // 	i = 0;
-// 	while(i < 5)
+// 	while(i < atoi(argv[2]) - atoi(argv[1]))
 // 	{
 // 		printf("%d, ", dest[i]);
 // 		i++;
 // 	}
 // 	free(dest);
-// }
+}
