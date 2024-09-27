@@ -14,9 +14,12 @@
 
 int	ft_strlen(char *str)
 {
-	if (*str == '\0')
-		return (1);
-	return (ft_strlen (str + 1) + 1);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 char	*ft_strcat(char *dest, char *src)
@@ -28,9 +31,9 @@ char	*ft_strcat(char *dest, char *src)
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
 	i = 0;
-	while (i < (src_len - 1))
+	while (i < src_len)
 	{
-		dest[i + dest_len - 1] = src[i];
+		dest[i + dest_len] = src[i];
 		i++;
 	}
 	return (dest);
