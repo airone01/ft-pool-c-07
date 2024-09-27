@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h> // aaaaaaaaaaaaaaaaaaaa
 
 int	ft_strlen(char *str)
 {
@@ -33,18 +34,15 @@ char	*ft_strcat(char *dest, char *src)
 		dest[i + dest_len - 1] = src[i];
 		i++;
 	}
-	dest[i + dest_len - 1] = '\0';
+	// dest[i + dest_len - 1] = '\0';
 	return (dest);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+int	getFinalSize(int size, char **strs, int size_sep)
 {
-	int		size_sep;
-	int		size_final;
-	int		i;
-	char	*final;
+	int	size_final;
+	int	i;
 
-	size_sep = ft_strlen(sep);
 	i = 0;
 	size_final = 0;
 	while (i < size)
@@ -54,7 +52,21 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			size_final += size_sep;
 		i++;
 	}
-	final = malloc(size_final * sizeof(char));
+	return (size_final);
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	int		size_sep;
+	int		i;
+	char	*final;
+
+	if (size == 0)
+		return (malloc(sizeof(char)));
+	size_sep = ft_strlen(sep);
+	final = malloc(getFinalSize(size, strs, size_sep) * sizeof(char));
+	if (final == NULL)
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
@@ -77,7 +89,5 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 // 	sep = *argv++;
 // 	dest = ft_strjoin(argc - 2, argv, sep);
 // 	printf("%s", dest);
-// 	free(dest);
-// 	dest = ft_strjoin(0, argv, sep);
 // 	free(dest);
 // }
