@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h> // aaaaaaaaaaaaaaaaaaaa
 
 int	ft_strlen(char *str)
 {
@@ -34,11 +33,10 @@ char	*ft_strcat(char *dest, char *src)
 		dest[i + dest_len - 1] = src[i];
 		i++;
 	}
-	// dest[i + dest_len - 1] = '\0';
 	return (dest);
 }
 
-int	getFinalSize(int size, char **strs, int size_sep)
+int	get_final_size(int size, char **strs, int size_sep)
 {
 	int	size_final;
 	int	i;
@@ -64,7 +62,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	if (size == 0)
 		return (malloc(sizeof(char)));
 	size_sep = ft_strlen(sep);
-	final = malloc(getFinalSize(size, strs, size_sep) * sizeof(char));
+	final = malloc(get_final_size(size, strs, size_sep) * sizeof(char));
 	if (final == NULL)
 		return (NULL);
 	i = 0;
