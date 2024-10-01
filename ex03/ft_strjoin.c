@@ -56,18 +56,33 @@ int	get_final_size(int size, char **strs, int size_sep)
 	return (size_final);
 }
 
+void	set_dummy(char *str, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		size_sep;
+	int		size_final;
 	int		i;
 	char	*final;
 
 	if (size == 0)
 		return (malloc(sizeof(char)));
 	size_sep = ft_strlen(sep);
-	final = malloc(get_final_size(size, strs, size_sep) * sizeof(char));
+	size_final = get_final_size(size, strs, size_sep);
+	final = malloc(size_final * sizeof(char));
 	if (final == NULL)
 		return (NULL);
+	set_dummy(final, size_final);
 	i = 0;
 	while (i < size)
 	{
@@ -79,16 +94,16 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (final);
 }
 
-// #include <stdio.h>
-// int	main(int argc, char **argv)
-// {
-// 	char	*dest;
-// 	char	*sep;
-//
-// 	// dest = malloc(sizeof(char));
-// 	argv++;
-// 	sep = *argv++;
-// 	dest = ft_strjoin(argc - 2, argv, sep);
-// 	printf("%s", dest);
-// 	free(dest);
-// }
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	char	*dest;
+	char	*sep;
+
+	// dest = malloc(sizeof(char));
+	argv++;
+	sep = *argv++;
+	dest = ft_strjoin(argc - 2, argv, sep);
+	printf("%s", dest);
+	free(dest);
+}
