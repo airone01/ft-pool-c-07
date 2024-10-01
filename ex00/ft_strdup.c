@@ -25,7 +25,7 @@ int	ft_strlen(char *str)
  * Returns:
  * - string if everything worked
  * - NULL if malloc failed
-*/
+ */
 char	*ft_strdup(char *src)
 {
 	int		i;

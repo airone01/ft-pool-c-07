@@ -16,7 +16,7 @@
  * Returns:
  * - pointer to ints if everything worked
  * - NULL if malloc failed
-*/
+ */
 int	*ft_range(int min, int max)
 {
 	int	*dest;

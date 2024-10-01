@@ -43,7 +43,7 @@ int	bad_base(char *base)
  * Checks i f a character is in a string
  *
  * Returns: true or false
-*/
+ */
 int	in_str(char c, char *str)
 {
 	int	i;
@@ -64,10 +64,10 @@ int	in_str(char c, char *str)
  * The second condition should never be reached because we
  * check the bases beforehand.
  * But just in case, it returns -1 if there is an error.
-*/
+ */
 int	ft_strchr(char *str, char c)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (1)
@@ -84,7 +84,7 @@ int	ft_strchr(char *str, char c)
  * Gets a number from a string using a base
  *
  * Returns: the resulting int
-*/
+ */
 int	ft_atoi_base(char *str, char *base)
 {
 	int	count;
@@ -112,7 +112,7 @@ int	ft_atoi_base(char *str, char *base)
 
 /*
  * Converts a number in a given base to another number in another given base
-*/
+ */
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int	len_from;
@@ -121,8 +121,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 
 	len_from = ft_strlen(base_from);
 	len_to = ft_strlen(base_to);
-	if (bad_base(base_from) || bad_base(base_to)
-		|| len_from <= 1 || len_to <= 1)
+	if (bad_base(base_from) || bad_base(base_to) || len_from <= 1
+		|| len_to <= 1)
 		return (0);
 	anbr = ft_atoi_base(nbr, base_from);
 	return (ft_itoa_base(anbr, base_to));

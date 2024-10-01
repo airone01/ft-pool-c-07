@@ -68,7 +68,7 @@ char	*ft_itoa_base(int nbr, char *base)
 		negative = 1;
 	ft_itoa_base2(&tmp, &nbr, &size, base);
 	size = size + negative + 1;
-	str = (char *) malloc(sizeof(char) * (size + 1));
+	str = (char *)malloc(sizeof(char) * (size + 1));
 	str[size] = '\0';
 	if (negative == 1)
 		str[0] = '-';

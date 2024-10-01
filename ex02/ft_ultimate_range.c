@@ -24,7 +24,7 @@
  * - the size of the array of ints
  * - if failed, -1
  * - if bad values, 0
-*/
+ */
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;

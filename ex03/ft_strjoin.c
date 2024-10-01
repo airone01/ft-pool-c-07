@@ -94,16 +94,17 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (final);
 }
 
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	char	*dest;
-	char	*sep;
-
-	// dest = malloc(sizeof(char));
-	argv++;
-	sep = *argv++;
-	dest = ft_strjoin(argc - 2, argv, sep);
-	printf("%s", dest);
-	free(dest);
-}
+// #include <stdio.h>
+//
+// int	main(int argc, char **argv)
+// {
+// 	char	*dest;
+// 	char	*sep;
+//
+// 	// dest = malloc(sizeof(char));
+// 	argv++;
+// 	sep = *argv++;
+// 	dest = ft_strjoin(argc - 2, argv, sep);
+// 	printf("%s", dest);
+// 	free(dest);
+// }
