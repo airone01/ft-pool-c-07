@@ -79,7 +79,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		return (malloc(sizeof(char)));
 	size_sep = ft_strlen(sep);
 	size_final = get_final_size(size, strs, size_sep);
-	final = malloc(size_final * sizeof(char));
+	final = malloc(size_final * sizeof(char) + 1);
 	if (final == NULL)
 		return (NULL);
 	set_dummy(final, size_final);
@@ -91,11 +91,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			ft_strcat(final, sep);
 		i++;
 	}
+	final[size_final] = '\0';
 	return (final);
 }
 
 // #include <stdio.h>
-//
 // int	main(int argc, char **argv)
 // {
 // 	char	*dest;
